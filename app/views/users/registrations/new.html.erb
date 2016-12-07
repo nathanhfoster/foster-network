@@ -1,0 +1,90 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <form id="survey-form" class="main-form">
+
+    <div class="survey-section mat-shadow">
+      <h2 class="sub-header">Sign up</h2>
+
+
+      <table class="profile-table">
+        <tbody>
+
+          <!-- Validate user input -->
+          <tr>
+            <td colspan="3">
+              <input class="input" type="hidden" name="_csrf" value="csrfTokenGoesHereFromServer">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+            <div class="form-group">
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name, :class => "form-control" %>
+              </div>
+              </tr>
+          <tr>
+            <td colspan="2">
+            <div class="form-group">
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name, :class => "form-control" %>
+              </div>
+              </tr>
+          <tr>
+            <td colspan="2">
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+              </div>
+              </tr>
+
+            <td colspan="2">
+              <div class="form-group">
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+              <em style="color: white;">(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "off", :class => "form-control"  %>
+              </div>
+
+          <tr>
+            <td colspan="2">
+            <div class="form-group">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+            </td>
+            </div>
+          </tr>
+           <tr>
+            <td colspan="2">
+            <div class="form-group">
+            <%= f.label :biography %>
+            <%= f.text_area :biography, :class => "form-control" %>
+            </td>
+            </div>
+          </tr>
+          <!-- Submit -->
+          <tr>
+            <td colspan="2">
+            <div class="actions">
+            <%= f.submit "Sign up", class: 'btn btn-default'  %>
+            </div>
+            </td>
+          </tr>
+
+          <!-- Back -->
+           <tr>
+            <td colspan="2">
+            <%= link_to '', :back, {:class => 'glyphicon glyphicon-circle-arrow-left'} %>
+            </td>
+          </tr>
+          <td colspan="2">
+            <%= render "devise/shared/links" %>
+            </td>
+        </tbody>
+      </table>
+    </div>
+  </form>
+
+
+<% end %>

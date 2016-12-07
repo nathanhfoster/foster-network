@@ -1,0 +1,69 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+<form id="survey-form" class="main-form">
+
+    <div class="survey-section mat-shadow">
+      <h2 class="sub-header">Log in</h2>
+
+
+      <table class="profile-table">
+        <tbody>
+
+          <!-- Validate user input -->
+          <tr>
+            <td colspan="3">
+              <input class="input" type="hidden" name="_csrf" value="csrfTokenGoesHereFromServer">
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+              </div>
+              </tr>
+
+            <td colspan="2">
+              <div class="form-group">
+              <%= f.label :password %>
+              <%= f.password_field :password, autocomplete: "off", :class => "form-control"  %>
+              </div>
+
+          <tr>
+            <td colspan="2">
+            <div class="form-group">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+            </td>
+            </div>
+          </tr>
+          <!-- Submit -->
+          <tr>
+            <td colspan="2">
+            <div class="actions">
+            <%= f.submit "Log in", class: 'btn btn-default' %>
+            </div>
+            </td>
+          </tr>
+
+          <!-- Back -->
+           <tr>
+            <td colspan="2">
+            <%= link_to '', :back, {:class => 'glyphicon glyphicon-circle-arrow-left'} %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+            <%= render "devise/shared/links" %>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </form>
+
+<% end %>
+
+
