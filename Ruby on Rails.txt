@@ -37,6 +37,8 @@ ruby bin/rails generate scaffold Post title:string body:text
 ruby bin/rake  db:migrate
 ruby bin/rails server
 
+rails destroy scaffold
+
 sudo apt-get install ruby-full
 cd ruby-2.2.3
 ./configure
